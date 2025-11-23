@@ -22,7 +22,6 @@ Abre tu terminal y descarga el proyecto:
 
 ```bash
 git clone [URL_REPOSITORIO_GITHUB]
-cd api-rest-servicios
 ```
 
 ### 2. Instalación de Dependencias
@@ -37,20 +36,12 @@ npm install
 
 La aplicación utiliza variables de entorno para manejar la configuración sensible.
 
-A. Crear el Archivo .env
+Debes renombrar el archivo .env.template:
+Cambia su nombre por .env y añade las siguientes variables con tus credenciales:
 
-Importante: La aplicación busca el archivo llamado .env en la raíz. Si tienes una plantilla (.env.template), debes renombrarla:
-Abre el archivo .env y añade (o actualiza) las siguientes variables con tus credenciales:
-
-# Puerto en el que se ejecutará el servidor local.
+Puerto en el que se ejecutará el servidor local:
 PORT=3000
 
-# Cadena de conexión URI de tu base de datos en MongoDB Atlas.
-MONGODB_URI="mongodb+srv://<usuario>:<password>@<cluster>.mongodb.net/api-servicios-db?retryWrites=true&w=majority"
+URI de tu base de datos en MongoDB Atlas:
+APIKEY="mongodb+srv://admin:<db_password>@cluster0.ur0rhy9.mongodb.net/?appName=Cluster0"
 
-4. Iniciar el Servidor (Desarrollo)
-
-Utiliza el script dev para iniciar el servidor. Este comando utiliza Nodemon para reiniciar automáticamente la aplicación cada vez que guardes un archivo.
-```bash
-npm run dev
-```

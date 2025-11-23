@@ -32,7 +32,7 @@ Instala todas las librerías necesarias (express, mongoose, dotenv, cors, nodemo
 npm install
 ```
 
-3. Configuración de Variables de Entorno 
+### 3. Configuración de Variables de Entorno 
 
 La aplicación utiliza variables de entorno para manejar la configuración sensible.
 

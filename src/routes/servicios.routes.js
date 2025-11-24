@@ -1,4 +1,4 @@
-// 1º quiero traer de express y exporto abajo
+// 1º importar express y exportar abajo router
 const express = require('express');
 const router = express.Router(); // Inicializar el Router
 
@@ -23,6 +23,6 @@ router.get('/:id', getAServiceById);
 router.put('/:id', updateAServiceById);
 
 // DELETE
-router.delete('/:id/:cosa', deleteAServiceById);
+router.delete('/:id', deleteAServiceById);
 
 module.exports = router;

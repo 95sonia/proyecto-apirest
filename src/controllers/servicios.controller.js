@@ -2,6 +2,34 @@
 //importar el modelo
 const Servicio = require('../models/servicio.model');
 
+
+//Crear servicio. Los datos entran del body. 
+// El body lo mando desde el front con unos formularios que ya crearemos. De momento se puede simular con postman
+
+const createAService = async (req, res) => {
+    // capturar el body, es un atributo donde tendré los datos enviados desde el formulario
+    const nuevoServicio = new Servicio(req.body); //requerimos el objeto de nombre, precio etc que hemos creado en postman para poder enviarlo
+console.log(req.body)
+    try {
+        const servicioGuardado = await nuevoServicio.save(); //save es un método mongoose para almacenar, crear un servicio en la BD. como hay latencia- espera- usamos await
+        //console.log(servicioGuardado)
+        // si todo bien -> retornar (201 CREATED)
+        return res.status(201).json({
+            ok: true,
+            message: 'Servicio creado correctamente',
+            data: servicioGuardado
+        });
+    } catch (error) {
+        console.error('Error en createAService:', error);
+        // Gestionar si hay error (500 Internal Server Error)
+        return res.status(500).json({
+            ok: false,
+            message: 'Contacte con el administrador'
+        });
+    }
+};
+
+
 // Obtener todos los servicios
 const getAllServices = async (req, res) => {
     try {
@@ -57,33 +85,6 @@ const getAServiceById = async (req, res) => {
     }
 };
 
-
-//Crear servicio. Los datos entran del body. 
-// El body lo mando desde el front con unos formularios que ya crearemos. De momento se puede simular con postman
-
-const createAService = async (req, res) => {
-    // capturar el body, es un atributo donde tendré los datos enviados desde el formulario
-    const nuevoServicio = new Servicio(req.body); //requerimos el objeto de nombre, precio etc que hemos creado en postman para poder enviarlo
-console.log(req.body)
-    try {
-        const servicioGuardado = await nuevoServicio.save(); //save es un método mongoose para almacenar, crear un servicio en la BD. como hay latencia- espera- usamos await
-        //console.log(servicioGuardado)
-        // si todo bien -> retornar (201 CREATED)
-        return res.status(201).json({
-            ok: true,
-            message: 'Servicio creado correctamente',
-            data: servicioGuardado
-        });
-    } catch (error) {
-        console.error('Error en createAService:', error);
-        // Gestionar si hay error (500 Internal Server Error)
-        return res.status(500).json({
-            ok: false,
-            message: 'Contacte con el administrador'
-        });
-    }
-};
-
 //Modificar servicio por ID
 
 const updateAServiceById = async (req, res) => {
@@ -127,7 +128,7 @@ const updateAServiceById = async (req, res) => {
 const deleteAServiceById = async (req, res) => {
     // buscar el id en los params del endPoint
     const { id } = req.params;
-    console.log(req.params)
+    //console.log(req.params)
     try {
         const servicioEliminado = await Servicio.findByIdAndDelete(id);
           

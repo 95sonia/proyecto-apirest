@@ -40,8 +40,15 @@ Debes renombrar el archivo .env.template:
 Cambia su nombre por .env y añade las siguientes variables con tus credenciales:
 
 Puerto en el que se ejecutará el servidor local:
+
+```bash
 PORT=3000
+```
 
 URI de tu base de datos en MongoDB Atlas:
-APIKEY="mongodb+srv://admin:<db_password>@cluster0.ur0rhy9.mongodb.net/?appName=Cluster0"
+
+```bash
+APIKEY="mongodb+srv://admin:<db_password>@cluster0.ur0rhy9.mongodb.net/<nombre-de-tu-proyecto-en-BD>"
+```
+
 

@@ -23,4 +23,5 @@ const ServicioSchema = new mongoose.Schema({
 // 2. Exportar el Modelo que hemos creado arriba
 //'Servicio' va a ser una clase
 //Hacer uso de este modelo en aquellos lugares donde vaya a conectar con mi BD
+
 module.exports = mongoose.model('Servicio', ServicioSchema); 

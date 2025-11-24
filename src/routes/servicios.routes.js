@@ -1,5 +1,4 @@
 // 1º quiero traer de express y exporto abajo
-// /src/routes/servicios.routes.js
 const express = require('express');
 const router = express.Router(); // Inicializar el Router
 
@@ -24,6 +23,6 @@ router.get('/:id', getAServiceById);
 router.put('/:id', updateAServiceById);
 
 // DELETE
-router.delete('/:id', deleteAServiceById);
+router.delete('/:id/:cosa', deleteAServiceById);
 
 module.exports = router;

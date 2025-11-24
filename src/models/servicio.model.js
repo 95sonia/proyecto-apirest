@@ -7,7 +7,8 @@ const mongoose = require('mongoose');
 const ServicioSchema = new mongoose.Schema({
   nombre: { 
     type: String, 
-    required: true // Para que sea obligatorio = requerido
+    required: true, // Para que sea obligatorio = requerido
+    unique: true
   },
   descripcion: { 
     type: String, 

@@ -5,19 +5,35 @@ const mongoose = require('mongoose');
 // Estamos con mongoose: en el apartado de su web "defining your schema" sale la siguiente estructura:
 
 const ServicioSchema = new mongoose.Schema({
-  nombre: { 
-    type: String, 
+  nombre: {
+    type: String,
     required: true, // Para que sea obligatorio = requerido
     unique: true
   },
-  descripcion: { 
-    type: String, 
+  descripcion: {
+    type: String,
     required: true // descripción obligatoria
   },
-  precio: { 
-    type: Number, 
-    required: true // precio obligatorio
+  precio: {
+    type: Number,
+    required: true 
   },
+
+  email: {
+    type: String,
+    required: true
+  },
+
+  telefono: {
+    type: Number,
+    required: false
+  },
+
+  cantidad: {
+    type: Number,
+    required: true
+  }
+
 });
 
 // 2. Exportar el Modelo que hemos creado arriba

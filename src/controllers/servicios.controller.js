@@ -12,7 +12,7 @@ const createAService = async (req, res) => {
 console.log(req.body)
     try {
         const servicioGuardado = await nuevoServicio.save(); //save es un método mongoose para almacenar, crear un servicio en la BD. como hay latencia- espera- usamos await
-        //console.log(servicioGuardado)
+        console.log(servicioGuardado)
         // si todo bien -> retornar (201 CREATED)
         return res.status(201).json({
             ok: true,

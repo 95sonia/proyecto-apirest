@@ -48,7 +48,7 @@ PORT=3000
 URI de tu base de datos en MongoDB Atlas:
 
 ```bash
-APIKEY="mongodb+srv://admin:<db_password>@cluster0.ur0rhy9.mongodb.net/<nombre-de-tu-proyecto-en-BD>"
+DB_URI="mongodb+srv://admin:<db_password>@cluster0.ur0rhy9.mongodb.net/<nombre-de-tu-proyecto-en-BD>"
 ```
 
 

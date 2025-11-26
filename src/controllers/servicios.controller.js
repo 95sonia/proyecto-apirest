@@ -29,7 +29,6 @@ console.log(req.body)
     }
 };
 
-
 // Obtener todos los servicios
 const getAllServices = async (req, res) => {
     try {
@@ -156,7 +155,6 @@ const deleteAServiceById = async (req, res) => {
         });
     }
 };
-
 
 // exportamos las funciones para utilizarlas en RUTAS
 module.exports = {

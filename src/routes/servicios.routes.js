@@ -37,13 +37,25 @@ router.get('/:id', [
 
 // UPDATE A SERVICE
 router.put('/:id', [
-  check('nombre').trim().notEmpty().withMessage('Introduzca su nombre por favor').isLength({ min: 2, max: 100 }).withMessage('El nombre debe contener al menos 2 caracteres'),
-  check('descripcion', 'Escribe la descripción por favor').notEmpty().isLength({ min: 2, max: 100 }),
-  check('precio').trim().notEmpty().withMessage('Escribe el precio por favor').isNumeric().withMessage('El precio debe ser un número'),
-  check('email', 'Escribe un correo válido por favor').trim().isEmail(),
-  check('telefono', 'El teléfono debe tener 9 números').trim().isInt().isLength({ min: 9, max: 9 }),
-  check('cantidad').notEmpty().withMessage('El campo cantidad es obligatorio').isInt().withMessage('Introduzca un número sin decimales').custom(numero => numero > 0 && numero <= 100).withMessage('Introduzca un número entre 1 y 100'),
-  check('id').notEmpty().withMessage('Introduce un id').isMongoId().withMessage('El id introducido no tiene el formato Mongo, introduce un id válido'),
+  check('nombre')
+    .trim().notEmpty().withMessage('Introduzca su nombre por favor')
+    .isLength({ min: 2, max: 100 }).withMessage('El nombre debe contener al menos 2 caracteres'),
+  check('descripcion', 'Escribe la descripción por favor')
+    .notEmpty().isLength({ min: 2, max: 100 }),
+  check('precio')
+    .trim().notEmpty().withMessage('Escribe el precio por favor')
+    .isNumeric().withMessage('El precio debe ser un número'),
+  check('email', 'Escribe un correo válido por favor')
+    .notEmpty().trim().isEmail(),
+  check('telefono', 'El teléfono debe tener 9 números')
+    .trim().isInt().isLength({ min: 9, max: 9 }),
+  check('cantidad')
+    .notEmpty().withMessage('El campo cantidad es obligatorio')
+    .isInt().withMessage('Introduzca un número sin decimales')
+    .custom(numero => numero > 0 && numero <= 100).withMessage('Introduzca un número entre 1 y 100'),
+  check('id')
+    .notEmpty().withMessage('Introduce un id')
+    .isMongoId().withMessage('El id introducido no tiene el formato Mongo, introduce un id válido'),
   validateInputs
 ], updateAServiceById);
 

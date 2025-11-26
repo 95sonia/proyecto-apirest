@@ -6,6 +6,7 @@ require('dotenv').config()
 
 const dbConnect = require('./config/dbConnect');
 const serviciosRouter = require('./routes/servicios.routes');  // Importar las rutas, aunque el archivo esté vacío por ahora
+const authRouter = require('./routes/user.routes') // Importar
 
 // 1. Conectar a la base de datos
 dbConnect(); 
@@ -20,7 +21,8 @@ app.use(express.json())
 
 //4.-------------RUTAS (endpoints)-----------
 // Definir prefijo base /api/v1/servicios para todas las rutas 
-app.use('/api/v1/servicios', serviciosRouter); 
+app.use('/api/v1/servicios', serviciosRouter)
+app.use('/api/v1/auth', authRouter)
 
 
 //5.-------LISTENER: Poner a la escucha el servidor ="levantar" el servidor. Se pone siempre al final del archivo !!
